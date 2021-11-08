@@ -1,4 +1,4 @@
-# Exam-Rank-02
+# Exam Rank 02
 Time Limit: 3 Hours
 
 # 2 Questions In The Exam
