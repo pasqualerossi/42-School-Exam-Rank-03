@@ -5,8 +5,8 @@ Time Limit: 3 Hours
 
 Question 1
 
-- ft_union or ft_inter
+- ft_union or ft_inter (Randomized)
 
 Question 2
 
-- get_next_line or ft_printf
+- get_next_line or ft_printf (Randomized)
