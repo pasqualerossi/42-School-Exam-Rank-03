@@ -10,7 +10,9 @@ int	putcharacter(char c)
 
 int	isstring(char *str)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	if (!str)
 		str = "(null)";
 	while (str[i])
@@ -21,12 +23,13 @@ int	isstring(char *str)
 	return (i);
 }
 
-int putnumber(unsigned int i, int base)
+int	putnumber(unsigned int i, int base)
 {
-	char *arr = "0123456789abcdef";
-	int count = 0;
-	int n;
+	char	*arr = "0123456789abcdef";
+	int		count;
+	int		n;
 
+	count = 0;
 	if (i / base != 0)
 		count += putnumber(i / base, base);
 	n = i % base;
@@ -34,13 +37,15 @@ int putnumber(unsigned int i, int base)
 	return (count);
 }
 
-int isint(int i)
+int	isint(int i)
 {
-	int count = 0;
+	int	count;
+
+	count = 0;
 	if (i < 0)
 	{
 		i *= -1;
-	count += putcharacter('-');
+		count += putcharacter('-');
 	}
 	count += putnumber(i, 10);
 	return (count);
@@ -48,9 +53,12 @@ int isint(int i)
 
 int	ft_printf(char *string, ...)
 {
-	int counter = 0;
-	int i = 0;
-	va_list args;
+	int	counter;
+	int	i;
+
+	counter = 0;
+	i = 0;
+	va_list	args;
 	va_start(args, string);
 	while (string[i])
 	{
