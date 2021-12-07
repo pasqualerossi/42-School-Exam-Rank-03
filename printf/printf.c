@@ -5,9 +5,10 @@
 int	putcharacter(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-int isstring(char *str)
+int	isstring(char *str)
 {
 	int i = 0;
 	if (!str)
