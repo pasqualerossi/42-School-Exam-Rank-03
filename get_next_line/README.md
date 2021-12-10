@@ -10,7 +10,7 @@ Write a function named get_next_line which prototype should be:
 
 Your function must return a line that has been read from the file descriptor
 passed as parameter. What we call a "line that has been read" is a succesion of 0 to n characters
-that end with '\n' (ascii code 0x0a) or with End Of File (EOF)
+that end with '\n' (ascii code 0x0a) or with End Of File (EOF).
 
 The line should be returned including the '\n' in case there is one at the end
 of the line that has been read. When you've reached the EOF, you must store the current buffer in a char * and
