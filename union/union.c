@@ -1,25 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   union.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/10 17:15:01 by prossi            #+#    #+#             */
+/*   Updated: 2021/12/10 17:15:07 by prossi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int not_seen_before(char *s, int max_pos, char c) 
+void	ft_putchar(char c)
 {
-    int i;
-    i = -1;
-    while(++i < max_pos)
-        if (s[i] == c) return (0);
-    return (1); 
+	write(1, &c, 1);
 }
 
-void    ft_union(char *s1, char *s2) 
+int	main(int argc, char **argv)
 {
-    int i; 
-    int j;
+	int	used[255];
+	int	i;
+	int	j;
 
-    i = -1;
-    while (s1[++i])
-        if (not_seen_before(s1, i, s1[i]))
-               write(1, &s1[i], 1);
-    j = -1;
-    while (s2[++j])
-        if (not_seen_before(s1, i, s2[j]) & not_seen_before(s2, j, s2[j]))
-               write(1, &s2[j], 1);
+	if (argc == 3)
+	{
+		i = 1;
+		while (i < argc)
+		{
+			j = 0;
+			while (argv[i][j])
+			{
+				if (!used[(unsigned char)argv[i][j]])
+				{
+					used[(unsigned char)argv[i][j]] = 1;
+					ft_putchar(argv[i][j]);
+				}
+				j++;
+			}
+			i++;
+		}
+	}
+	ft_putchar('\n');
+	return (0);
 }
