@@ -10,7 +10,8 @@ it will manage only the following conversions:
 s (string), d (decimal) and x (lowercase hexademical). 
 
 <br />
-Your function must be declared as follows: int ft_printf(const char *, ... );
+Your function must be declared as follows: 
+<br /> int ft_printf(const char *, ... );
 
 <br /> Examples of the function output:
 
