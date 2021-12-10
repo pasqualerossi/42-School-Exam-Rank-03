@@ -1,46 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   union.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 17:15:01 by prossi            #+#    #+#             */
-/*   Updated: 2021/12/10 17:15:07 by prossi           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int main(int ac, char **av)
 {
-	write(1, &c, 1);
-}
-
-int	main(int argc, char **argv)
-{
-	int	used[255];
-	int	i;
-	int	j;
-
-	if (argc == 3)
+	if (ac == 3)
 	{
+		int i, j, tab[255];
+		i = 0;
+		while (i < 255)
+			tab[i++] = 0;
 		i = 1;
-		while (i < argc)
+		while (i < 3)
 		{
 			j = 0;
-			while (argv[i][j])
+			while (av[i][j])
 			{
-				if (!used[(unsigned char)argv[i][j]])
+				if (tab[(unsigned char)av[i][j]] == 0)
 				{
-					used[(unsigned char)argv[i][j]] = 1;
-					ft_putchar(argv[i][j]);
+					tab[(unsigned char)av[i][j]] = 1;
+					write(1, &av[i][j], 1);
 				}
 				j++;
 			}
 			i++;
 		}
 	}
-	ft_putchar('\n');
-	return (0);
+	write(1, "\n", 1);
+	return 0;
 }
