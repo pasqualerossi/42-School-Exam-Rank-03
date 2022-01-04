@@ -1,29 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   inter.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/04 16:48:51 by prossi            #+#    #+#             */
+/*   Updated: 2022/01/04 16:48:58 by prossi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
 #include <unistd.h>
 
-int	main(int ac, char **av)
+int	main(int argc, char *argv[])
 {
-	if (ac == 3)
+	char	map[255];
+	int		i;
+	int		j;
+
+	i = -1;
+	if (argc == 3)
 	{
-		int	i, j, tab[255];	
-		i = 0;
-		while (i < 255)
-			tab[i++] = 0;
-		i = 2;
-		while (i > 0)
+		while (argv[1][++i])
 		{
-			j = 0;
-			while (av[i][j])
+			j = -1;
+			while (argv[2][++j])
 			{
-				if (i == 2 && tab[(unsigned char)av[i][j]] == 0)
-					tab[(unsigned char)av[i][j]] = 1;
-				if (i == 1 && tab[(unsigned char)av[i][j]] == 1)
+				if (map[argv[1][i]] != 1 && (argv[1][i] == argv[2][j]))
 				{
-					tab[(unsigned char)av[i][j]] = 2;
-					write(1, &av[i][j], 1);
+					write(1, &argv[1][i], 1);
+					map[argv[1][i]] = 1;
 				}
-				j++;
 			}
-			i--;
 		}
 	}
 	write(1, "\n", 1);
