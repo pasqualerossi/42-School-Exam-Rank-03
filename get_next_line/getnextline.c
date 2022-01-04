@@ -23,7 +23,7 @@ char	*get_next_line(int fd)
 	int		i;
 
 	i = 0;
-	if (fd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	save[i] = '\0';
 	while (read(fd, buff, 1) == 1)
