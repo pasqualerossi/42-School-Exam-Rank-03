@@ -14,7 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	char	map[255];
+	char	*map[];
 	int		i, j;
 
 	i = -1;
