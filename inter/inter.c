@@ -6,7 +6,7 @@
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 16:48:51 by prossi            #+#    #+#             */
-/*   Updated: 2022/01/04 16:48:58 by prossi           ###   ########.fr       */
+/*   Updated: 2022/01/05 13:22:01 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 int	main(int argc, char *argv[])
 {
 	char	map[255];
-	int		i;
-	int		j;
+	int		i, j;
 
 	i = -1;
 	if (argc == 3)
@@ -36,5 +35,4 @@ int	main(int argc, char *argv[])
 		}
 	}
 	write(1, "\n", 1);
-	return (0);
 }
