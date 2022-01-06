@@ -6,7 +6,7 @@
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 14:06:02 by prossi            #+#    #+#             */
-/*   Updated: 2022/01/06 19:00:54 by prossi           ###   ########.fr       */
+/*   Updated: 2022/01/06 19:05:09 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*get_next_line(int fd)
 	int		i;
 
 	i = 0;
-	if (fd < 0 || BUFFER_SIZE <= 1)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	save[i] = '\0';
 	while (read(fd, buff, 1) == 1)
