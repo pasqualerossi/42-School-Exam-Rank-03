@@ -6,7 +6,7 @@
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 16:48:51 by prossi            #+#    #+#             */
-/*   Updated: 2022/01/05 13:22:01 by prossi           ###   ########.fr       */
+/*   Updated: 2022/01/05 17:50:26 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int	main(int argc, char *argv[])
 {
-	char	*map;
-	int	i, j;
+	int	i;
+	int	j;
 
-	i = -1;
+	i = -1; 
+	j = -1;
 	if (argc == 3)
 	{
-		while (argv[1][++i])
+		while (argv[1][++i]) 
 		{
-			j = -1;
 			while (argv[2][++j])
 			{
-				if (map[argv[1][i]] != 1 && (argv[1][i] == argv[2][j]))
+				if (argv[1][i] != 1 && (argv[1][i] == argv[2][j]))
 				{
 					write(1, &argv[1][i], 1);
-					map[argv[1][i]] = 1;
+					argv[1][i] = 1;
 				}
 			}
 		}
