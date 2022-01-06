@@ -1,6 +1,6 @@
 # Get_Next_Line Tester Results
 
-<img width="935" alt="Screen Shot 2022-01-04 at 2 31 30 PM" src="https://user-images.githubusercontent.com/58959408/148008090-4956d3d3-c80c-42ac-9365-e45d2c5846c4.png">
+<img width="936" alt="Screen Shot 2022-01-06 at 7 05 30 PM" src="https://user-images.githubusercontent.com/58959408/148353835-08c16533-54d6-427f-99ab-e398b53fcfa6.png">
 
 # Link To Tester
 
