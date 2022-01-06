@@ -9,11 +9,11 @@ it will manage only the following conversions:
 
 s (string), d (decimal) and x (lowercase hexademical). 
 
-<br />
+
 Your function must be declared as follows: 
 <br /> int ft_printf(const char *, ... );
 
-<br /> Examples of the function output:
+Examples of the function output:
 
 call: ft_printf("%s\n", "toto");
 out: toto$
