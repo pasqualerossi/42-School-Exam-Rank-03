@@ -1,5 +1,3 @@
-//This is the printf version with the '%' flag.
-
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -76,13 +74,6 @@ int	ft_printf(char *string, ...)
 				counter += putnumber(va_arg(args, unsigned int), 16);
 			if (string[i] == '%')
 				counter += putcharacter(string[i]);
-				//counter += putcharacter(va_arg(args, counter++);
-				//counter += putcharacter(va_arg(args, string[i]);
-				//putcharacter('%');
-				//putcharacter('%', 1);
-				//args->counter++;
-			//if (string[i] == '%')
-				//putcharacter('%');
 		}
 		else
 			counter += putcharacter(string[i]);
