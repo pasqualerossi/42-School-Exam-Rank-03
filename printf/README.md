@@ -1,5 +1,5 @@
 # Printf Tester Results
-<img width="822" alt="Screen Shot 2022-01-18 at 9 46 52 AM" src="https://user-images.githubusercontent.com/58959408/149846674-8edc8ffb-6377-488d-b492-e1c1efb1f10e.png">
+<img width="820" alt="Screen Shot 2022-01-18 at 9 48 47 AM" src="https://user-images.githubusercontent.com/58959408/149846777-77569e54-dcda-41be-b8be-33b095b0557c.png">
 
 # Link To Tester
 https://github.com/Abaker-Hype/42-Cursus-Tester 
