@@ -1,4 +1,4 @@
-//This is the printf with the '%' flag.
+//This is the printf version with the '%' flag.
 
 #include <unistd.h>
 #include <stdarg.h>
