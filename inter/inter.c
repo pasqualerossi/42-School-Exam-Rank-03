@@ -2,22 +2,17 @@
 
 int	main(int argc, char *argv[])
 {
-	int	i;
-	int	j;
+	int i = -1;
+	int j = -1;
 
-	i = -1; 
-	j = -1;
 	if (argc == 3)
 	{
-		while (argv[1][++i]) 
+		while (argv[1][++i] && (argv[2][++j])) 
 		{
-			while (argv[2][++j])
+			if (argv[1][i] != 1 && (argv[1][i] == argv[2][j]))
 			{
-				if (argv[1][i] != 1 && (argv[1][i] == argv[2][j]))
-				{
 					write(1, &argv[1][i], 1);
 					argv[1][i] = 1;
-				}
 			}
 		}
 	}
