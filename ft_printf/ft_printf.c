@@ -8,11 +8,10 @@ int	putcharacter(char c)
 	return (1);
 }
 
-int	isstring(char *str)
+int	putstring(char *str)
 {
-	int	i;
+	int	i = 0;
 
-	i = 0;
 	if (!str)
 		str = "(null)";
 	while (str[i])
@@ -25,24 +24,20 @@ int	isstring(char *str)
 
 int	putnumber(unsigned int i, int base)
 {
-	char	*arr;
-	int		count;
-	int		n;
+	char	*arr = "0123456789abcdef";
+	int	count = 0;
+	int	n = i % base;
 
-	arr = "0123456789abcdef";
-	count = 0;
 	if (i / base != 0)
 		count += putnumber(i / base, base);
-	n = i % base;
 	count += write(1, &arr[n], 1);
 	return (count);
 }
 
-int	isint(int i)
+int	putint(int i)
 {
-	int	count;
+	int	count = 0;
 
-	count = 0;
 	if (i < 0)
 	{
 		i *= -1;
@@ -54,11 +49,9 @@ int	isint(int i)
 
 int	ft_printf(char *string, ...)
 {
-	int	counter;
-	int	i;
+	int	counter = 0;
+	int	i = 0;
 
-	counter = 0;
-	i = 0;
 	va_list	args;
 	va_start(args, string);
 	while (string[i])
@@ -67,13 +60,11 @@ int	ft_printf(char *string, ...)
 		{
 			i++;
 			if (string[i] == 's')
-				counter += isstring(va_arg(args, char *));
+				counter += putstring(va_arg(args, char *));
 			if (string[i] == 'd')
-				counter += isint(va_arg(args, int));
+				counter += putint(va_arg(args, int));
 			if (string[i] == 'x')
 				counter += putnumber(va_arg(args, unsigned int), 16);
-			if (string[i] == '%')
-				counter += putcharacter(string[i]);
 		}
 		else
 			counter += putcharacter(string[i]);
