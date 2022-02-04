@@ -1,6 +1,6 @@
 # Note
 
-Not sure yet if Inter and Union will 100% work in the exam. 
+Union.c does not work yet. 
 
 # Exam Rank 02
 Time Limit: 3 Hours
