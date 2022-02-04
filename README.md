@@ -5,7 +5,7 @@ No Norminette in the Exam.
 # Exam Rank 02
 Time Limit: 3 Hours
 
-# Questions In The Exam
+# Exam Questions
 
 The exam has 2 questions:
 
