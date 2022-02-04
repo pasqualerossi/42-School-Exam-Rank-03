@@ -12,7 +12,6 @@ int	main(int argc, char *argv[])
 			if (argv[1][i] != 1 && (argv[1][i] == argv[2][j]))
 			{
 					write(1, &argv[1][i], 1);
-					argv[1][i] = 1;
 			}
 		}
 	}
