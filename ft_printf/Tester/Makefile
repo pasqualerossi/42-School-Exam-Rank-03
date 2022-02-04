@@ -3,4 +3,3 @@ all:
 	ar rcs libftprintf.a printf.o
 
 re: all
-
