@@ -7,10 +7,12 @@ Allowed functions: write
 Write a program that takes two strings and displays, without doubles, the
 characters that appear in either one of the strings.
 
+The display will be in the order characters appear in the command line, followed by a \n (new line).
+
 # Example
 
-1st String - zpadinton
+1st String - "ppaassqquuaallee"
 
-2nd String - "paqefwtdjetyiytjneytjoeyjnejeyj" 
+2nd String - "pasquale"
 
-Output - zpadintoqefwjy
+Output - pasquale
