@@ -1,38 +1,27 @@
-#include "get_next_line.h"
 #include <unistd.h>
 #include <stdlib.h>
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
-#endif
+#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
-	char	save[999999];
-	char	buff[1];
-	char	*line;
+	int	rd;
 	int	i = 0;
+	char	c;
+	char	*buffer = malloc(9999);
 
-	save[i] = '\0';
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	while (read(fd, buff, 1) == 1)
+	while ((rd = read(fd, &c, 1) > 0))
 	{
-		save[i] = buff[0];
-		save[i + 1] = '\0';
-		if (save[i] == '\n')
+		buffer[i] = c;
+		i++;
+		if (c == '\n')
 			break ;
-		i++;
 	}
-	if (save[0] == '\0')
-		return (NULL);
-	line = malloc(i + 1);
-	i = 0;
-	while (save[i])
+	if ((!buffer[i - 1] && !rd) || rd == -1)
 	{
-		line[i] = save[i];
-		i++;
+		free(buffer);
+		return (NULL);
 	}
-	line[i] = '\0';
-	return (line);
+	i++;
+	buffer[i] = '\0';
+	return (buffer);
 }
