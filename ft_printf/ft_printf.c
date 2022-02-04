@@ -1,14 +1,24 @@
 #include <unistd.h>
 #include <stdarg.h>
-#include <stdio.h>
 
-int	putcharacter(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
-int	putstring(char *str)
+int     ft_putnbr(unsigned int i, int base)
+{
+        char    *base_set = "0123456789abcdef";
+        int     count = 0;
+        int     n = i % base;
+
+        if (i / base > 0)
+                count += ft_putnbr(i / base, base);
+        count += ft_putchar(base_set[n]);
+        return (count);
+}
+
+int	ft_putstr(char *str)
 {
 	int	i = 0;
 
@@ -16,43 +26,31 @@ int	putstring(char *str)
 		str = "(null)";
 	while (str[i])
 	{
-		putcharacter(str[i]);
+		ft_putchar(str[i]);
 		i++;
 	}
 	return (i);
 }
 
-int	putnumber(unsigned int i, int base)
-{
-	char	*arr = "0123456789abcdef";
-	int	count = 0;
-	int	n = i % base;
-
-	if (i / base != 0)
-		count += putnumber(i / base, base);
-	count += write(1, &arr[n], 1);
-	return (count);
-}
-
-int	putint(int i)
+int	ft_putint(int i)
 {
 	int	count = 0;
 
 	if (i < 0)
 	{
+		count += ft_putchar('-');
 		i *= -1;
-		count += putcharacter('-');
 	}
-	count += putnumber(i, 10);
+	count += ft_putnbr(i, 10);
 	return (count);
 }
 
 int	ft_printf(char *string, ...)
 {
-	int	counter = 0;
-	int	i = 0;
+	int		count = 0;
+	va_list		args;
+	int		i = 0;
 
-	va_list	args;
 	va_start(args, string);
 	while (string[i])
 	{
@@ -60,16 +58,16 @@ int	ft_printf(char *string, ...)
 		{
 			i++;
 			if (string[i] == 's')
-				counter += putstring(va_arg(args, char *));
+				count += ft_putstr(va_arg(args, char *));
 			if (string[i] == 'd')
-				counter += putint(va_arg(args, int));
+				count += ft_putint(va_arg(args, int));
 			if (string[i] == 'x')
-				counter += putnumber(va_arg(args, unsigned int), 16);
+				count += ft_putnbr(va_arg(args, unsigned int), 16);
 		}
 		else
-			counter += putcharacter(string[i]);
+			count += ft_putchar(string[i]);
 		i++;
 	}
 	va_end(args);
-	return (counter);
+	return (count);
 }
