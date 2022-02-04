@@ -1,7 +1,3 @@
-# Union
-
-Union.c does not work yet. 
-
 # Union Exam Rank 02
 
 Assignment name  : union <br>
