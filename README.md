@@ -1,6 +1,6 @@
 # Note
 
-Union.c does not work yet. 
+No Norminette in the Exam. 
 
 # Exam Rank 02
 Time Limit: 3 Hours
