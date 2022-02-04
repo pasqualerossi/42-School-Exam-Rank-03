@@ -6,9 +6,9 @@ int	main(int argc, char *argv[])
 
 	if (argc == 3)
 	{
-		while (argv[1][++i] && (argv[2][i]))
+		while (argv[1][++i] && argv[2][i])
 		{
-			if (argv[1][i] && (argv[2][i] != 1))
+			if (argv[1][i] && argv[2][i] != 1)
 			{
 				write(1, &argv[1][i], 1) && write(1, &argv[2][i], 1);
 			}
