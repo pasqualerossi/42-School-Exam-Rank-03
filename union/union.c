@@ -11,7 +11,6 @@ int	main(int argc, char *argv[])
 			if (argv[1][i] && (argv[2][i] != 1))
 			{
 				write(1, &argv[1][i], 1) && write(1, &argv[2][i], 1);
-				(argv[1][i] = 1) && (argv[2][i] = 1);
 			}
 		}
 	}
