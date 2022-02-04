@@ -11,7 +11,7 @@ The display will be in the order characters appear in the command line, followed
 
 # Example
 
-1st String - "ppaassqquuaallee"
+1st String - "pas"
 
 2nd String - "pasquale"
 
