@@ -1,18 +1,22 @@
 # Note
 
-No Norminette in the Exam. 
+No Norminette in the Exam 💻
 
 # Exam Rank 02
-Time Limit: 3 Hours
+Time Limit: 3 Hours 🕒
 
 # Exam Questions
 
-The exam has 2 questions:
+The Exam has 2 Questions:
 
-Question 1
+| Question :one: | 
+|------------|
+| Union      | 
+| or         |
+| Inter      |
 
-- ft_union or ft_inter (You could get either question)
-
-Question 2
-
-- get_next_line or ft_printf (You could get either question)
+| Question 2️⃣ | 
+|------------|
+| Get_Next_Line      | 
+| or         |
+| Ft_Printf      |
