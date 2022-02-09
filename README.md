@@ -1,8 +1,8 @@
-# Note
+# Norminette
 
 No Norminette in the Exam 💻
 
-# Exam Rank 02
+# 42 Adelaide
 Time Limit: 3 Hours 🕒
 
 # Exam Questions
