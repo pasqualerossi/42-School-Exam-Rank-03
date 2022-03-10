@@ -7,15 +7,9 @@ Time Limit: 3 Hours 🕒
 
 # Exam Questions
 
-The Exam has 2 Questions:
+The Exam has 1 Question:
 
-| Question :one: | 
-|------------|
-| [Union](https://github.com/pasqualerossi/42-School-Exam-Rank-02/blob/main/union/union.c)      | 
-| or         |
-| [Inter](https://github.com/pasqualerossi/42-School-Exam-Rank-02/tree/main/inter)     |
-
-| Question 2️⃣ | 
+| Question 2️:one: | 
 |------------|
 | [Get_Next_Line](https://github.com/pasqualerossi/42-School-Exam-Rank-02/blob/main/get_next_line/get_next_line.c)      | 
 | or         |
