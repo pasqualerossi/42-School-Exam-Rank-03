@@ -9,7 +9,7 @@ Time Limit: 3 Hours 🕒
 
 The Exam has 1 Question:
 
-| Question 2️:one: | 
+| Question  :one: | 
 |------------|
 | [Get_Next_Line](https://github.com/pasqualerossi/42-School-Exam-Rank-02/blob/main/get_next_line/get_next_line.c)      | 
 | or         |
