@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int    write_func(char *str)
+int    write_string(char *str)
 {
     int i = 0;
     if (!str)
@@ -15,20 +15,20 @@ int    write_func(char *str)
     return (i);
 }
 
-int    write_int(unsigned int i, int base)
+int    write_hexadecimal(unsigned int i, int base)
 {
     char *arr = "0123456789abcdef";
     int count = 0;
     int n = i % base;
 
     if (i/base != 0)
-        count += write_int(i/base, base);
+        count += write_hexadecimal(i/base, base);
     write(1, &arr[n], 1);
     count++;
     return (count);
 }
 
-int    int_func(int i)
+int    write_decimal(int i)
 {
     int count = 0; 
     
@@ -43,7 +43,7 @@ int    int_func(int i)
         i *= -1;
         count++;
     }
-    count += write_int(i, 10);
+    count += write_hexadecimal(i, 10);
     return (count);
 }
 
@@ -60,11 +60,11 @@ int	ft_printf(char *string, ...)
 		{
 			i++;
 			if (string[i] == 's')
-				count += write_func(va_arg(args, char *));
+				count += write_string(va_arg(args, char *));
 			if (string[i] == 'd')
-				count += int_func(va_arg(args, int));
+				count += write_decimal(va_arg(args, int));
 			if (string[i] == 'x')
-				count += write_int(va_arg(args, unsigned int), 16);
+				count += write_hexadecimal(va_arg(args, unsigned int), 16);
 		}
 		else
         {
