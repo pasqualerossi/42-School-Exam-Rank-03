@@ -6,7 +6,7 @@
 
 https://github.com/Abaker-Hype/42-Cursus-Tester
 
-# Get_Next_Line Exam Rank 02 Subject Text
+# Get_Next_Line Exam Rank 03 Subject Text
 
 Assignment name  : get_next_line <br />
 Expected files   : get_next_line.c get_next_line.h <br />
