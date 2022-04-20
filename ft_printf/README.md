@@ -5,7 +5,7 @@
 # Link To Tester
 https://github.com/Abaker-Hype/42-Cursus-Tester 
 
-# Printf Exam Rank 02 Subject Text
+# Printf Exam Rank 03 Subject Text
 
 Assignment name  : ft_printf <br />
 Expected files   : ft_printf.c <br />
