@@ -1,6 +1,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+size_t string(char *str, int len)
+{
+    while (str && str[len] && ++len);
+    return (str ? write(1, str, len) : write(1, "(null)", 6));
+}
+
 void    decimal(unsigned dig, unsigned len, char *sign, int *g_var)
 {
     if (dig >= len)
@@ -12,12 +18,6 @@ void    hexadecimal(long dig, int len, char *sign, int *g_var)
 {
     (dig < 0) ? (*g_var += (int)write(1, "-", 1), \
     decimal(-dig, len, sign,g_var)) : decimal(dig, len, sign, g_var);
-}
-
-size_t string(char *str, int len)
-{
-    while (str && str[len] && ++len);
-    return (str ? write(1, str, len) : write(1, "(null)", 6));
 }
 
 int ft_printf(const char *fmt, ...)
