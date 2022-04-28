@@ -14,7 +14,7 @@ void    hexadecimal(long dig, int len, char *sign, int *g_var)
     decimal(-dig, len, sign,g_var)) : decimal(dig, len, sign, g_var);
 }
 
-size_t character(char *str, int len)
+size_t string(char *str, int len)
 {
     while (str && str[len] && ++len);
     return (str ? write(1, str, len) : write(1, "(null)", 6));
@@ -29,7 +29,7 @@ int ft_printf(const char *fmt, ...)
 	while (*fmt)
     {
         if (*fmt == '%' && *(fmt + 1) == 's' && (fmt += 2))
-            g_var += (int)character(va_arg(ap, char *), 0);
+            g_var += (int)string(va_arg(ap, char *), 0);
         else if (*fmt == '%' && *(fmt + 1) == 'x' && (fmt += 2))
             decimal(va_arg(ap, int), 16, "0123456789abcdef", &g_var);
         else if (*fmt == '%' && *(fmt + 1) == 'd' && (fmt += 2))
