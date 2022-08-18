@@ -1,78 +1,67 @@
 #include <unistd.h>
 #include <stdarg.h>
-#include <stdio.h>
 
-int    write_string(char *str)
+int	g_var = 0;
+
+void	ft_put_number(long digits, int length, char *sign)
 {
-    int i = 0;
-    if (!str)
-        str = "(null)";
-    while (str[i])
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
-    return (i);
+	if (digits >= length)
+		ft_put_number(digits / length, length, sign);
+	write(1, &sign[digits % length], 1);
+	g_var++;
 }
 
-int    write_hexadecimal(unsigned int i, int base)
+void	ft_put_hexadecimal(unsigned digits, unsigned length, char *sign)
 {
-    char *arr = "0123456789abcdef";
-    int count = 0;
-    int n = i % base;
-
-    if (i/base != 0)
-        count += write_hexadecimal(i/base, base);
-    write(1, &arr[n], 1);
-    count++;
-    return (count);
+	if (digits >= length)
+		ft_put_hexadecimal(digits / length, length, sign);
+	write(1, &sign[digits % length], 1);
+	g_var++;
 }
 
-int    write_decimal(int i)
+int	ft_printf(const char *format, ...)
 {
-    int count = 0; 
-    
-    if (i == -2147483648)
-    {
-        write(1, "-2147483648", 11);
-        return (11);
-    }
-    if (i < 0)
-    {
-        write(1, "-", 1);
-        i *= -1;
-        count++;
-    }
-    count += write_hexadecimal(i, 10);
-    return (count);
-}
+	g_var = 0;
+	va_list ap;
+	va_start(ap, format);
 
-int	ft_printf(char *string, ...)
-{
-	int		count = 0;
-	va_list	args;
-	int		i = 0;
-
-	va_start(args, string);
-	while (string[i])
+	while (*format)
 	{
-		if (string[i] == '%')
+		if (*format == '%')
 		{
-			i++;
-			if (string[i] == 's')
-				count += write_string(va_arg(args, char *));
-			if (string[i] == 'd')
-				count += write_decimal(va_arg(args, int));
-			if (string[i] == 'x')
-				count += write_hexadecimal(va_arg(args, unsigned int), 16);
+			format++;
+			if (*format == 's')
+			{
+				int	 length = 0;
+				char *string = va_arg(ap, char *);
+				if (!string)
+					string = "(null)";
+				while (string[length])
+					length++;
+				g_var += length;
+				write(1, string, length);
+			}
+			else if (*format == 'd')
+			{
+				long long decimal = va_arg(ap, int);
+				if (decimal < 0)
+				{
+					write(1, "-", 1);
+					g_var++;
+					decimal = -decimal;
+				}
+				ft_put_number(decimal, 10, "0123456789");
+			}
+			else if (*format == 'x')
+			{
+				int hexadecimal = va_arg(ap, int);
+				ft_put_hexadecimal(hexadecimal, 16, "0123456789abcdef");
+			}
+			format++;
 		}
 		else
-        {
-            write(1, &string[i], 1);
-            count++;
-        }
-		i++;
+			g_var += write(1, format++, 1);
 	}
-	va_end(args);
-	return (count);
+	va_end(ap);
+	return (g_var);
 }
