@@ -5,15 +5,15 @@ void    ft_putnbr(unsigned digits, unsigned length, char *sign, int *g_var)
 {
     if (digits >= length)
     {
-		ft_putnbr(digits / length, length, sign, g_var);
-	}
-	*g_var += (int)write (1, &sign[digits % length], 1);
+	ft_putnbr(digits / length, length, sign, g_var);
+    }
+    *g_var += (int)write (1, &sign[digits % length], 1);
 }
 
 void    ft_dig(long digits, int length, char *sign, int *g_var)
 {
     (digits < 0) ? (*g_var += (int)write(1, "-", 1), \
-	ft_putnbr(-digits, length, sign,g_var)) : ft_putnbr(digits, length, sign, g_var);
+    ft_putnbr(-digits, length, sign,g_var)) : ft_putnbr(digits, length, sign, g_var);
 }
 
 size_t ft_putstr(char *string, int length)
