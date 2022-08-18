@@ -31,18 +31,18 @@ int ft_printf(const char *format, ...)
     while (*format)
     {
         if (*format == '%' && *(format + 1) == 's' && (format += 2))
-		{
+	{
             g_var += (int)ft_putstr(va_arg(ap, char *), 0);
-		}
-		else if (*format == '%' && *(format + 1) == 'x' && (format += 2))
+	}
+	else if (*format == '%' && *(format + 1) == 'x' && (format += 2))
         {
-			    ft_putnbr(va_arg(ap, int), 16, "0123456789abcdef", &g_var);
-		}
-		else if (*format == '%' && *(format + 1) == 'd' && (format += 2))
+	    ft_putnbr(va_arg(ap, int), 16, "0123456789abcdef", &g_var);
+	}
+	else if (*format == '%' && *(format + 1) == 'd' && (format += 2))
         {    
-			ft_dig(va_arg(ap, int), 10, "0123456789", &g_var);
-		}
-		else
+	    ft_dig(va_arg(ap, int), 10, "0123456789", &g_var);
+	}
+	else
             g_var += (int)write(1, format++, 1);
     }
     return (va_end(ap), g_var);
