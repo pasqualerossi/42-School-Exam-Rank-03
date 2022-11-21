@@ -21,7 +21,9 @@ void	ft_put_hexadecimal(unsigned digits, unsigned length, char *sign)
 
 int	ft_printf(const char *format, ...)
 {
+	int length = 0;
 	g_var = 0;
+	
 	va_list ap;
 	va_start(ap, format);
 
@@ -32,7 +34,6 @@ int	ft_printf(const char *format, ...)
 			format++;
 			if (*format == 's')
 			{
-				int	 length = 0;
 				char *string = va_arg(ap, char *);
 				if (!string)
 					string = "(null)";
