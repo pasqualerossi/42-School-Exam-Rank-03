@@ -25,6 +25,7 @@ int ft_printf(const char *format, ...)
     int     g_var = 0;
     va_list ap;
     va_start(ap, format);
+    
     while (*format)
     {
         if (*(format + 1) == 's' && (format += 2))
