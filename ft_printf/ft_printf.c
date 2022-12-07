@@ -27,7 +27,7 @@ void	put_digit(long long int nbr, int base, int *len)
 
 int	ft_printf(const char *format, ...)
 {
-	int			len = 0;
+	int		len = 0;
 	va_list		ptr;
 
 	va_start(ptr, format);
