@@ -1,10 +1,3 @@
-# Printf Tester Results
-
-<img width="808" alt="Screen Shot 2022-03-10 at 6 16 05 PM" src="https://user-images.githubusercontent.com/58959408/157613312-ce7e7b4b-fbd8-4e79-a386-40623f08b384.png">
-
-# Link To Tester
-https://github.com/Abaker-Hype/42-Cursus-Tester 
-
 # Printf Exam Rank 03 Subject Text
 
 Assignment name  : ft_printf <br />
