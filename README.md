@@ -2,15 +2,13 @@
 
 No Norminette in the Exam 💻
 
-# Exam Questions
+# Exam Question
 
-The Exam has 1 Question:
+This exam has 1 question, either get_next_line or ft_printf:
 
-| Question  :one: | 
-|------------|
-| [Get_Next_Line](https://github.com/pasqualerossi/42-School-Exam-Rank-03/blob/main/get_next_line/shorter_version_of_get_next_line/get_next_line.c)      | 
-| or         |
-| [Ft_Printf](https://github.com/pasqualerossi/42-School-Exam-Rank-03/blob/main/ft_printf/ft_printf.c)      |
+- [Get_Next_Line](https://github.com/pasqualerossi/42-School-Exam-Rank-03/blob/main/get_next_line/shorter_version_of_get_next_line/get_next_line.c)
+
+- [Ft_Printf](https://github.com/pasqualerossi/42-School-Exam-Rank-03/blob/main/ft_printf/ft_printf.c)
 
 # Exam Practice
 
