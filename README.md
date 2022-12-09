@@ -2,9 +2,6 @@
 
 No Norminette in the Exam 💻
 
-# 42 Adelaide
-Time Limit: 3 Hours 🕒
-
 # Exam Questions
 
 The Exam has 1 Question:
