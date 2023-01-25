@@ -6,9 +6,9 @@ No norminette in this exam 💻
 
 Either Get_Next_Line or Ft_Printf:
 
-- [Get_Next_Line](https://github.com/pasqualerossi/42-School-Exam-Rank-03/blob/main/get_next_line/get_next_line.c) 
+- [Get_Next_Line](https://github.com/pasqualerossi/42-School-Exam-Rank-03/tree/main/get_next_line) 
 
-- [Ft_Printf](https://github.com/pasqualerossi/42-School-Exam-Rank-03/blob/main/ft_printf/ft_printf.c) 
+- [Ft_Printf](https://github.com/pasqualerossi/42-School-Exam-Rank-03/tree/main/ft_printf) 
 
 if you can make the code shorter, but readable, let me know!
 
