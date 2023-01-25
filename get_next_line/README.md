@@ -66,3 +66,17 @@ char	  *get_next_line(int fd);
 > FILE
 
 - Finally we consider that get_next_line has an undefined behaviour when reading from a binary file.
+
+<br>
+
+## Code Explaination
+
+> Code Commented
+
+<img width="650" alt="Screen Shot 2023-01-25 at 11 42 55 AM" src="https://user-images.githubusercontent.com/58959408/214457673-9f714718-2e16-41dd-9eb6-04d767da3458.png">
+
+<br>
+
+> Line by Line
+
+<img width="673" alt="Screen Shot 2023-01-25 at 11 43 53 AM" src="https://user-images.githubusercontent.com/58959408/214457798-f19dbee4-6a29-472e-81b7-f519a8c92330.png">
