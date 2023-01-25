@@ -1,6 +1,6 @@
 # Norminette
 
-No norminette in this exam 💻
+There's no norminette in this exam 💻
 
 # 1 Exam Question
 
