@@ -1,8 +1,8 @@
 #include "get_next_line.h"
 
-char *get_next_line(int fd) 
+char	*get_next_line(int fd)
 {
-    char *string = malloc(10000), *copy = string;
-    while (read(fd, copy, 1) > 0 && *copy++ != '\n');
-    return (copy > string) ? (*copy = 0, string) : (free(string), NULL);
+	char	*string = malloc(10000), *buffer = string;
+	while (read(fd, buffer, 1) > 0 && *buffer++ != '\n');
+	return (buffer > string) ? (*buffer = 0, string) : (free(string), NULL);
 }
