@@ -7,6 +7,8 @@ char *get_next_line(int fd)
     char    character;
     char     *buffer = malloc(10000);
 
+	if (BUFFER_SIZE <= 0)
+		return (free(buffer), NULL);
     while ((rd = read(fd, &character, BUFFER_SIZE - BUFFER_SIZE + 1)) > 0)
     {
         buffer[i++] = character;
