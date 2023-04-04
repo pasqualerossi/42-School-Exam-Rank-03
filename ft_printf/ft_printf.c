@@ -37,6 +37,8 @@ int	ft_printf(const char *format, ...)
 		if ((*format == '%') && *(format + 1))
 		{
 			format++;
+			if (*format == '%')
+				put_string("%%", &length);
 			if (*format == 's')
 				put_string(va_arg(pointer, char *), &length);
 			else if (*format == 'd')
