@@ -28,17 +28,15 @@ void	put_digit(long long int number, int base, int *length)
 int	ft_printf(const char *format, ...)
 {
 	int length = 0;
-	
+
 	va_list	pointer;
 	va_start(pointer, format);
-	
+
 	while (*format)
 	{
-		if ((*format == '%') && *(format + 1))
+		if ((*format == '%') && ((*(format + 1) == 's') || (*(format + 1) == 'd') || (*(format + 1) == 'x')))
 		{
 			format++;
-			if (*format == '%')
-				put_string("%%", &length);
 			if (*format == 's')
 				put_string(va_arg(pointer, char *), &length);
 			else if (*format == 'd')
