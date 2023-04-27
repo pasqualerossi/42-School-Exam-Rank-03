@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include <unistd.h>
-#include <stdlib.h>
 #include <stdarg.h>
 
 void	put_string(char *string, int *length)
