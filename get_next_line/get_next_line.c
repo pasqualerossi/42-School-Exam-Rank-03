@@ -2,13 +2,13 @@
 
 char *get_next_line(int fd)
 {
-    if (BUFFER_SIZE <= 0)
-        return (NULL);
     int     i = 0;
     int     rd = 0;
     char    character;
     char    *buffer = malloc(100000);
-
+    
+    if (BUFFER_SIZE <= 0)
+        return (NULL);
     while ((rd = read(fd, &character, BUFFER_SIZE - BUFFER_SIZE + 1)) > 0)
     {
         buffer[i++] = character;
