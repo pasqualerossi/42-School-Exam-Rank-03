@@ -12,6 +12,6 @@ Either Get_Next_Line or Ft_Printf:
 
 if you can make the code shorter, but readable, let me know!
 
-# Exam Practice
+# Exam Practice Tool
 
 Practice the exam just like you would in the real exam with this tool - https://github.com/JCluzet/42_EXAM
