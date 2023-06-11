@@ -20,6 +20,8 @@ Practice the exam just like you would in the real exam with this tool - https://
 
 ### get_next_line
 ```c
+#include "get_next_line.h"
+
 char *get_next_line(int fd)
 {
     int i = 0;                      // Initialise a variable to keep track of the current position in the buffer
