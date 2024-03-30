@@ -69,7 +69,7 @@ char	*get_next_line(int fd)
 	int			to_copy;
 
 	line = ft_strdup(buf);
-	while (!(ft_strchr(line, '\n')) && (countread = read(fd, buf, BUFFER_SIZE)) > 0)
+	while (!(newline = ft_strchr(line, '\n')) && (countread = read(fd, buf, BUFFER_SIZE)))
 	{
 		buf[countread] = '\0';
 		line = ft_strjoin(line, buf);
@@ -77,7 +77,6 @@ char	*get_next_line(int fd)
 	if (ft_strlen(line) == 0)
 		return (free(line), NULL);
 
-	newline = ft_strchr(line, '\n');
 	if (newline != NULL)
 	{
 		to_copy = newline - line + 1;
