@@ -13,9 +13,8 @@ char	*ft_strchr(char *s, int c)
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
-
-	i = 0;
+	size_t	i = 0;
+	
 	while (s[i])
 		i++;
 	return (i);
@@ -30,11 +29,9 @@ void	ft_strcpy(char *dst, const char *src)
 
 char	*ft_strdup(const char *src)
 {
-	char	*dst;
-	size_t	len;
-
-	len = ft_strlen(src) + 1;
-	dst = malloc(len);
+	char	*dst = malloc(len);
+	size_t	len = ft_strlen(src) + 1;
+	
 	if (dst == NULL)
 		return (NULL);
 	ft_strcpy(dst, src);
@@ -43,14 +40,12 @@ char	*ft_strdup(const char *src)
 
 char	*ft_strjoin(char *s1, char const *s2)
 {
-	size_t	s1_len;
-	size_t	s2_len;
+	size_t	s1_len = ft_strlen(s1);
+	size_t	s2_len = ft_strlen(s2);
 	char	*join;
 
 	if (!s1 || !s2)
 		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
 	join = malloc((s1_len + s2_len + 1));
 	if (!join)
 		return (NULL);
