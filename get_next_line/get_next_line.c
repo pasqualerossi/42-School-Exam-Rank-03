@@ -42,11 +42,10 @@ char	*ft_strjoin(char *s1, char const *s2)
 {
 	size_t	s1_len = ft_strlen(s1);
 	size_t	s2_len = ft_strlen(s2);
-	char	*join;
+	char	*join = malloc((s1_len + s2_len + 1));
 
 	if (!s1 || !s2)
 		return (NULL);
-	join = malloc((s1_len + s2_len + 1));
 	if (!join)
 		return (NULL);
 	ft_strcpy(join, s1);
