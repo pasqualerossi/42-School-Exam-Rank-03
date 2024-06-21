@@ -23,7 +23,7 @@ void	put_digit(long long int number, int base, int *length)
 	*length += write(1, &hexadecimal[number % base], 1);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ... )
 {
 	int length = 0;
 
