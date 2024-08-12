@@ -5,7 +5,7 @@ char	*ft_strchr(char *s, int c)
 	while (*s)
 	{
 		if (*s == (char)c)
-			return ((char *)s);
+			return (s);
 		s++;
 	}
 	return (NULL);
@@ -38,18 +38,17 @@ char	*ft_strdup(const char *src)
 	return (dst);
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	s1_len = ft_strlen(s1);
-	size_t	s2_len = ft_strlen(s2);
-	char	*join = malloc((s1_len + s2_len + 1));
+	char *join;
 
 	if (!s1 || !s2)
 		return (NULL);
+	join = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!join)
 		return (NULL);
 	ft_strcpy(join, s1);
-	ft_strcpy((join + s1_len), s2);
+	ft_strcpy(join + ft_strlen(s1), s2);
 	free(s1);
 	return (join);
 }
@@ -60,7 +59,6 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*newline;
 	int			countread;
-	int			to_copy;
 
 	line = ft_strdup(buf);
 	while (!(newline = ft_strchr(line, '\n')) && (countread = read(fd, buf, BUFFER_SIZE)))
@@ -71,16 +69,13 @@ char	*get_next_line(int fd)
 	if (ft_strlen(line) == 0)
 		return (free(line), NULL);
 
-	if (newline != NULL)
+	if (newline)
 	{
-		to_copy = newline - line + 1;
 		ft_strcpy(buf, newline + 1);
+		*(newline + 1) = '\0';
 	}
 	else
-	{
-		to_copy = ft_strlen(line);
 		buf[0] = '\0';
-	}
-	line[to_copy] = '\0';
+
 	return (line);
 }
