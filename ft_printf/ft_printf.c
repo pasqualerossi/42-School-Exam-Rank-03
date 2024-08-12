@@ -11,8 +11,6 @@ void	put_string(char *string, int *length)
 
 void	put_digit(long long int number, int base, int *length)
 {
-	char	*hexadecimal = "0123456789abcdef";
-
 	if (number < 0)
 	{
 		number *= -1;
@@ -20,7 +18,7 @@ void	put_digit(long long int number, int base, int *length)
 	}
 	if (number >= base)
 		put_digit((number / base), base, length);
-	*length += write(1, &hexadecimal[number % base], 1);
+	*length += write(1, &("0123456789abcdef"[number % base]), 1);
 }
 
 int	ft_printf(const char *format, ... )
