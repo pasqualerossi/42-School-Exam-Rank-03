@@ -1,81 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gkomba <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/30 14:59:09 by gkomba            #+#    #+#             */
+/*   Updated: 2024/08/30 14:59:12 by gkomba           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strdup(char *src)
 {
-	while (*s)
-	{
-		if (*s == (char)c)
-			return (s);
-		s++;
-	}
-	return (NULL);
-}
+	char	*dest;
+	int		i;
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i = 0;
-	
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	ft_strcpy(char *dst, const char *src)
-{
-	while (*src)	
-		*dst++ = *src++;
-	*dst = '\0';
-}
-
-char	*ft_strdup(const char *src)
-{
-	size_t	len = ft_strlen(src) + 1;
-	char	*dst = malloc(len);
-	
-	if (dst == NULL)
-		return (NULL);
-	ft_strcpy(dst, src);
-	return (dst);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	char *join;
-
-	if (!s1 || !s2)
-		return (NULL);
-	join = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!join)
-		return (NULL);
-	ft_strcpy(join, s1);
-	ft_strcpy(join + ft_strlen(s1), s2);
-	free(s1);
-	return (join);
+	i = -1;
+	while (src[++i])
+		;
+	dest = (char *)malloc(sizeof(char) * (i + 1));
+	i = -1;
+	while (src[++i])
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	buf[BUFFER_SIZE + 1];
-	char		*line;
-	char		*newline;
-	int			countread;
+	static char	buffer[BUFFER_SIZE];
+	char		line[70000];
+	static int	buffer_readed;
+	static int 	buffer_pos;
+	int			i;
 
-	line = ft_strdup(buf);
-	while (!(newline = ft_strchr(line, '\n')) && (countread = read(fd, buf, BUFFER_SIZE)))
+	i = 0;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	while (1)
 	{
-		buf[countread] = '\0';
-		line = ft_strjoin(line, buf);
+		if (buffer_pos >= buffer_readed)
+		{
+			buffer_readed = read(fd, buffer, BUFFER_SIZE);
+			buffer_pos = 0;
+			if (buffer_readed <= 0)
+				break ;
+		}
+		line[i++] = buffer[buffer_pos++];
+		if (line[i - 1] == '\n')
+			break ;
 	}
-	if (ft_strlen(line) == 0)
-		return (free(line), NULL);
-
-	if (newline)
-	{
-		ft_strcpy(buf, newline + 1);
-		*(newline + 1) = '\0';
-	}
-	else
-		buf[0] = '\0';
-
-	return (line);
+	line[i] = '\0';
+	if (i == 0)
+		return (NULL);
+	return (ft_strdup(line));
 }
