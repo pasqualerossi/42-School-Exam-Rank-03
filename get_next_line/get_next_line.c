@@ -1,47 +1,53 @@
 #include "get_next_line.h"
 
-char	*ft_strdup(char *src)
-{
-	char	*dest;
-	int		i;
-
-	i = 0;
-	while (src[i])
-		i++;
-	dest = (char *)malloc(sizeof(char) * (i + 1));
-	i = -1;
-	while (src[++i])
-		dest[i] = src[i];
-	dest[i] = '\0';
-	return (dest);
-}
-
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
-	char		line[70000];
-	static int	buffer_readed;
-	static int 	buffer_pos;
-	int			i;
+	int 	i = 0;
+	int	byte;
+	char	*str_buf;
+	char	c;
 
-	i = 0;
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	while (1)
+
+	str_buf = (char*)malloc(42000000);
+	byte = read(fd, &c, 1);
+
+	while (byte > 0)
 	{
-		if (buffer_pos >= buffer_readed)
-		{
-			buffer_readed = read(fd, buffer, BUFFER_SIZE);
-			buffer_pos = 0;
-			if (buffer_readed <= 0)
-				break ;
-		}
-		line[i++] = buffer[buffer_pos++];
-		if (line[i - 1] == '\n')
+		str_buf[i] = c;
+		i++;
+		if (c == EOF || c == '\n')
 			break ;
+		byte = read(fd, &c, 1);
 	}
-	line[i] = '\0';
-	if (i == 0)
+
+	if (i == 0 || byte < 0)
+	{
+		free(str_buf);
 		return (NULL);
-	return (ft_strdup(line));
+	}
+	str_buf[i] = '\0';
+	return (str_buf);
+}	
+
+// TESTs [Remove or comment out this part when you're ready to submit]
+/*
+int	main(void)
+{
+	int	fd;
+	char	*str;
+	char	*path;
+	int	i = -1;
+
+	path = "subject.en.txt";
+	fd = open(path, O_RDONLY);
+	
+	while (++i < 10)
+	{
+		str = get_next_line(fd);
+		printf("%s\n", str);
+	}
+	return (0);
 }
+*/
