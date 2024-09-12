@@ -29,25 +29,4 @@ char	*get_next_line(int fd)
 	}
 	str_buf[i] = '\0';
 	return (str_buf);
-}	
-
-// TESTs [Remove or comment out this part when you're ready to submit]
-/*
-int	main(void)
-{
-	int	fd;
-	char	*str;
-	char	*path;
-	int	i = -1;
-
-	path = "subject.en.txt";
-	fd = open(path, O_RDONLY);
-	
-	while (++i < 10)
-	{
-		str = get_next_line(fd);
-		printf("%s\n", str);
-	}
-	return (0);
 }
-*/
