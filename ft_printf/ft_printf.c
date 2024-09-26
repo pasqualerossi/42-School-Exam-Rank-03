@@ -13,11 +13,11 @@ int putstr(char *str, int i)
 int putnum(long num, int base)
 {
 	char *b = "0123456789abcdef";
-	if (num <0 && base == 10)
+	if (num < 0 && base == 10)
 		return write(1, "-", 1) + putnum(num*-1, base);
-	if (num <0 && base == 16)
+	if (num < 0 && base == 16)
 		return putnum((unsigned int)num, base);
-	if (num/base==0)
+	if (num/base == 0)
 		return write(1, &b[num%base], 1);
 	return putnum(num/base, base) + putnum(num%base, base);
 }
