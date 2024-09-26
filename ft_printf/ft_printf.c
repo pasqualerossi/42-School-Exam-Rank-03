@@ -7,8 +7,7 @@ int putstr(char *str, int i)
 		return putstr("(null)", i);
 	if (!str[i])
 		return i;
-	write(1, &str[i], 1);
-	return putstr(str, i+1);
+	return putstr(str, i + write(1, &str[i], 1));
 }
 
 int putnum(long num, int base)
@@ -33,8 +32,7 @@ int ptf(char *s, va_list args, int i, int n)
 		return ptf(s, args, i + 2, n + putnum(va_arg(args, int), 10));
 	if (s[i] == '%' && s[i + 1] == 'x')
 		return ptf(s, args, i + 2, n + putnum(va_arg(args, int), 16));
-	write(1, &s[i], 1);
-	return ptf(s, args, i + 1, n + 1);
+	return ptf(s, args, i + 1, n + write(1, &s[i], 1));
 }
 
 int ft_printf(char *s, ...)
