@@ -13,6 +13,7 @@ int putstr(char *str, int i)
 int putnum(long num, int base)
 {
 	char *b = "0123456789abcdef";
+	
 	if (num < 0 && base == 10)
 		return write(1, "-", 1) + putnum(num*-1, base);
 	if (num < 0 && base == 16)
