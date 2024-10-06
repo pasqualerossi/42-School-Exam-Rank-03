@@ -1,4 +1,4 @@
-## 2 Excepted Files
+## 2 Files Required
 
 :one: get_next_line.c 
 
