@@ -1,43 +1,80 @@
+#include <stdlib.h>
 #include <unistd.h>
 #include <stdarg.h>
 
-int putstr(char *str, int i)
+static void ft_putstr(const char *s, int *count)
 {
-	if (!str)
-		return putstr("(null)", i);
-	if (!str[i])
-		return i;
-	return putstr(str, i + write(1, &str[i], 1));
+    if (!s)
+        s = "(null)";
+    while (*s)
+    {
+        write(1, s++, 1);
+        (*count)++;
+    }
 }
 
-int putnum(long num, int base)
+static void ft_putnbr(int n, int *count)
 {
-	char *b = "0123456789abcdef";
-	
-	if (num < 0 && base == 10)
-		return write(1, "-", 1) + putnum(num*-1, base);
-	if (num < 0 && base == 16)
-		return putnum((unsigned int)num, base);
-	if (num/base == 0)
-		return write(1, &b[num%base], 1);
-	return putnum(num/base, base) + putnum(num%base, base);
+    char c;
+
+    if (n == -2147483648)
+    {
+        ft_putstr("-2147483648", count);
+        return;
+    }
+    if (n < 0)
+    {
+        write(1, "-", 1);
+        (*count)++;
+        n = -n;
+    }
+    if (n > 9)
+        ft_putnbr(n / 10, count);
+    c = (n % 10) + '0';
+    write(1, &c, 1);
+    (*count)++;
 }
 
-int ptf(char *s, va_list args, int i, int n)
+static void ft_puthex(unsigned int n, int *count)
 {
-	if (!s[i])
-		return n;
-	if (s[i] == '%' && s[i + 1] == 's')
-		return ptf(s, args, i + 2, n + putstr(va_arg(args, char *), 0));
-	if (s[i] == '%' && s[i + 1] == 'd')
-		return ptf(s, args, i + 2, n + putnum(va_arg(args, int), 10));
-	if (s[i] == '%' && s[i + 1] == 'x')
-		return ptf(s, args, i + 2, n + putnum(va_arg(args, int), 16));
-	return ptf(s, args, i + 1, n + write(1, &s[i], 1));
+    char *hex = "0123456789abcdef";
+
+    if (n >= 16)
+        ft_puthex(n / 16, count);
+    write(1, &hex[n % 16], 1);
+    (*count)++;
 }
 
-int ft_printf(char *s, ...)
+int ft_printf(const char *format, ...) /* You can find all this function in the manual. "man va_arg", "man 2 va_arg", "man 3 va_arg" */
 {
-	va_list args;
-	return va_start(args, s), va_end(args), ptf(s, args, 0, 0);
+    va_list args;
+    int count = 0;
+
+    va_start(args, format);
+    while (*format)
+    {
+        if (*format == '%' && *(format + 1))
+        {
+            format++;
+            if (*format == 's')
+                ft_putstr(va_arg(args, char *), &count);
+            else if (*format == 'd')
+                ft_putnbr(va_arg(args, int), &count);
+            else if (*format == 'x')
+                ft_puthex(va_arg(args, unsigned int), &count);
+            else
+            {
+                write(1, format, 1);
+                count++;
+            }
+        }
+        else
+        {
+            write(1, format, 1);
+            count++;
+        }
+        format++;
+    }
+    va_end(args);
+    return count;
 }
