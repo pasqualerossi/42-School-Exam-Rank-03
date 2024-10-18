@@ -1,3 +1,5 @@
+#include "get_next_line.h"
+
 char	*ft_strdup(char *src)
 {
 	char	*dest;
