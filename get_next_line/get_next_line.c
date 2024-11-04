@@ -39,21 +39,34 @@ char	*get_next_line(int fd)
 			if (buffer_read <= 0)
 				break ;
 		}
-		if (line[i] == '\n')
-			break ;
 		line[i] = buffer[buffer_pos++];
+		if (line[i] == '\n')
+		{
+			i++;
+			break ;
+		}
 		i++;
 	}
-	line[i] = '\0';
 	if (i == 0)
 		return (NULL);
+	line[i] = '\0';
 	return (ft_strdup(line));
 }
 /*
 int main()
 {
     int fd = open("./txt.txt", O_RDONLY);
-    printf("%s", get_next_line(fd));
+	char *line;
+	while (fd)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		printf("line is %s\n", line);
+		free(line);
+	}
+	close(fd);
     return (0);
 }
 */
+
