@@ -39,12 +39,9 @@ char	*get_next_line(int fd)
 			if (buffer_read <= 0)
 				break ;
 		}
-		if (buffer[buffer_pos] == '\n')
-		{
-			buffer_pos++;
-			break ;
-		}
 		line[i] = buffer[buffer_pos++];
+		if (buffer[buffer_pos] == '\n')
+			break ;
 		i++;
 	}
 	line[i] = '\0';
